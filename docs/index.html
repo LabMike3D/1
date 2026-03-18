@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitální kovárna | 2026</title>
+  <script type="module" crossorigin src="./assets/index-CJ9Vywx5.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Blj1rAgz.css">
+</head>
+<body>
+
+    <div class="shorts-drawer" id="shortsDrawer">
+        <div class="shorts-header">
+            <h2>Bleskovky</h2>
+            <button id="closeShortsBtn">&times;</button>
+        </div>
+        <div class="shorts-content" id="shortsContent">
+            <div class="loading-spinner" id="shortsLoader"></div>
+        </div>
+    </div>
+
+    <canvas id="neural-flow"></canvas>
+
+    <section class="hero">
+        <nav class="hero-navbar">
+            <h1 class="mega-title">Digitální kovárna</h1>
+            <div class="shorts-menu-btn" id="shortsMenuBtn">
+                <div class="hamburger-icon">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <span class="shorts-label">BLESKOVKY</span>
+            </div>
+        </nav>
+        <div class="hero-tagline">Podcasty o AI najdeš na YouTube</div>
+    </section>
+
+    <section class="carousel-wrapper">
+        <input type="radio" name="slides" id="slide1" checked>
+        <input type="radio" name="slides" id="slide2">
+        <input type="radio" name="slides" id="slide3">
+        <input type="radio" name="slides" id="slide4">
+        <input type="radio" name="slides" id="slide5">
+
+        <div class="carousel-3d">
+            <div class="carousel-track">
+                <div class="slide">
+                    <!-- <div class="slide-bg" style="background-image: url('images/s1.jpg');"></div> DOPORUČENÁ VELIKOST: 2560x720px -->
+                    <div class="slide-content"><h2>Umělá inteligence</h2></div>
+                </div>
+                <div class="slide">
+                    <!-- <div class="slide-bg" style="background-image: url('images/s2.jpg');"></div> DOPORUČENÁ VELIKOST: 2560x720px -->
+                    <div class="slide-content"><h2>Robotika</h2></div>
+                </div>
+                <div class="slide">
+                    <!-- <div class="slide-bg" style="background-image: url('images/s3.jpg');"></div> DOPORUČENÁ VELIKOST: 2560x720px -->
+                    <div class="slide-content"><h2>Strojové učení</h2></div>
+                </div>
+                <div class="slide">
+                    <!-- <div class="slide-bg" style="background-image: url('images/s4.jpg');"></div> DOPORUČENÁ VELIKOST: 2560x720px -->
+                    <div class="slide-content"><h2>3D Design</h2></div>
+                </div>
+                <div class="slide">
+                    <!-- <div class="slide-bg" style="background-image: url('images/s5.jpg');"></div> DOPORUČENÁ VELIKOST: 2560x720px -->
+                    <div class="slide-content"><h2>Digital Café</h2></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-dots">
+            <label for="slide1" class="dot" onclick="manualControl(1)"></label>
+            <label for="slide2" class="dot" onclick="manualControl(2)"></label>
+            <label for="slide3" class="dot" onclick="manualControl(3)"></label>
+            <label for="slide4" class="dot" onclick="manualControl(4)"></label>
+            <label for="slide5" class="dot" onclick="manualControl(5)"></label>
+        </div>
+    </section>
+
+    <section class="model-section">
+        <div class="bento-card-3d">
+            <div id="canvas-container"></div>
+            <div class="model-ui">
+                <button class="model-btn active" data-model="0">Model 1</button>
+                <button class="model-btn" data-model="1">Model 2</button>
+                <button class="model-btn" data-model="2">Model 3</button>
+            </div>
+            <div class="model-info">
+                <span class="badge-render">Realtime Render + AR</span>
+                <h2 style="font-size: 2rem; font-weight: 900; text-transform: uppercase;">Aktivní Projekt</h2>
+                <p style="color: #888; font-size: 0.8rem; font-style: italic;">Modely načteny z /models/</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="bento-grid">
+            <div class="bento-item c1">
+                <!-- <div class="bento-bg" style="background-image: url('images/b1.jpg');"></div> DOPORUČENÁ VELIKOST: 800x450px -->
+                <span>AI Generování</span>
+            </div>
+            <div class="bento-item c2">
+                <!-- <div class="bento-bg" style="background-image: url('images/b2.jpg');"></div> DOPORUČENÁ VELIKOST: 800x450px -->
+                <span>Robotika</span>
+            </div>
+            <div class="bento-item c3">
+                <!-- <div class="bento-bg" style="background-image: url('images/b3.jpg');"></div> DOPORUČENÁ VELIKOST: 800x450px -->
+                <span>Neural Networks</span>
+            </div>
+            <div class="bento-item c4">
+                <!-- <div class="bento-bg" style="background-image: url('images/b4.jpg');"></div> DOPORUČENÁ VELIKOST: 800x450px -->
+                <span>3D Rendering</span>
+            </div>
+            <div class="bento-item c5">
+                <!-- <div class="bento-bg" style="background-image: url('images/b5.jpg');"></div> DOPORUČENÁ VELIKOST: 800x450px -->
+                <span>Digitální kovárna</span>
+            </div>
+            <div class="bento-item c1">
+                <!-- <div class="bento-bg" style="background-image: url('images/b6.jpg');"></div> DOPORUČENÁ VELIKOST: 800x450px -->
+                <span>Local Intelligence</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-grid-section">
+        <div class="video-grid">
+            <div class="video-wrapper"><video controls playsinline preload="metadata" src="videos/1.mp4"></video></div>
+            <div class="video-wrapper"><video controls playsinline preload="metadata" src="videos/2.mp4"></video></div>
+            <div class="video-wrapper"><video controls playsinline preload="metadata" src="videos/3.mp4"></video></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/g63fEK72sjM?si=mYjghLT1rnCuAHR3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%; height: 100%;"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/zECdzNFLwEU?si=K0O9zrJ9BwcDbfbr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%; height: 100%;"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/2VrNKZeSXHY?si=VpK4U3gGFpGez13c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%; height: 100%;"></iframe></div>
+        </div>
+    </section>
+
+    <footer class="hyper-footer">
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <a href="https://www.youtube.com/shorts/ifS73sx2RMM" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">AI v českých školách</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/Z6HrL7YxoFM" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">Samsung S26 Ultra: Gateway do Galaxy AI</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/6eKEcMqunRU" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">DJI ROMO Hack Par Excellence DIY</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/9_yNp0mhOZE" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">AI právě rozbíjí hry i Hollywood</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/3jL6ysJdfo8" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">ComfyUI Sora 2 API</span> <span class="yt-label">YouTube Video</span></a>
+                <!-- Duplikace pro plynulý loop -->
+                <a href="https://www.youtube.com/shorts/ifS73sx2RMM" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">AI v českých školách</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/Z6HrL7YxoFM" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">Samsung S26 Ultra: Gateway do Galaxy AI</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/6eKEcMqunRU" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">DJI ROMO Hack Par Excellence DIY</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/9_yNp0mhOZE" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">AI právě rozbíjí hry i Hollywood</span> <span class="yt-label">YouTube Video</span></a>
+                <a href="https://www.youtube.com/shorts/3jL6ysJdfo8" target="_blank" class="ticker-item" style="text-decoration: none;"><span class="ticker-title">ComfyUI Sora 2 API</span> <span class="yt-label">YouTube Video</span></a>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <div class="brand">
+                <div class="footer-logo">DIGITÁLNÍ<span>KOVÁRNA</span></div>
+                <div class="yt-callout">Podcasty o AI každých 48 hodin</div>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Studio</h4>
+                    <a href="/">Showreel</a><a href="/">Projekty</a>
+                </div>
+                <div class="link-group">
+                    <h4>Labs</h4>
+                    <a href="/">AI Forge</a><a href="/">Robotics</a>
+                </div>
+                <div class="link-group">
+                    <h4>Kontakt</h4>
+                    <a href="/">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <div>&copy; 2026 DIGITÁLNÍ KOVÁRNA</div>
+            <div class="station-online">STATION ONLINE</div>
+        </div>
+    </footer>
+
+</body>
+</html>
